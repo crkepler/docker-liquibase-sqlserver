@@ -100,7 +100,7 @@ This step is nearly identical to the one above, except that the tables in `test_
 to detect the differences in the next step.
 
 > Notice that we'll be using a second `liquibase-2.properties` file because we'll be connecting to a different
-> database (`test-2`). If we don't use a new properties file all the connection information must be passed in via
+> database (`test_2`). If we don't use a new properties file all the connection information must be passed in via
 > command line and as you saw from the prior step, the command is already long enough.
 
 ### Linux / Mac
@@ -235,6 +235,8 @@ lastname_firstname - varchar(100)
 
 </table>
 
+
+### See the ```./liquibase/changelog_1.xml``` and ```changelog_2.xml``` file for all the details.
 
 <br/>
 

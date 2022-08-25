@@ -4,7 +4,7 @@
 
 This project has 2 sections:
 
-1. **Getting started** - which is in this file in the next section below.
+1. **Getting started** - which is in this file.
 2. **[Demo](./DEMO.md)** - a step-by-step tutorial covering the basics of using Liquibase on MSSQL. 
 
 
@@ -32,7 +32,7 @@ and this project is one great way to get exposed to Docker, even if you never us
 
 ---
 ### 4. Download and install a SQL Server Editor 
-One excellent option is **[DBeaver](https://dbeaver.io/)** as it works both on Mac and Windows. You may use any other SQL editor that works with SQL Server.
+One excellent option is **[DBeaver](https://dbeaver.io/)** as it works Mac, Windows, and Linux. You may use any other SQL editor that works with SQL Server.
 
 --- 
 ### 5. Start SQL Server in a Docker Container
@@ -49,7 +49,7 @@ This commands reads the `docker-compose.yml` file in the project's root folder a
 It may take a few minutes to run, as the first time it downloads (pulls) the SQL Server image to start the
 DB container.
 
-This task is not running in the background and after a feew minutes you should see no errors in the terminal output.
+This task is not running in the background and after a few minutes you should see no errors in the terminal output.
 
 --- 
 ### 6. Start the Demo
@@ -69,3 +69,8 @@ To view the running container(s) in your computer:
 docker ps 
 ```
 Containers are image instances and in this case we have only one container running from the MS SQL Server image.
+
+Look at the ``./docker-compose.yml`` file to see how the MS SQL Server container is setup. This file was created
+so we can easily start the container with a simple ``docker compose up`` command, otherwise we'd need to
+execute ``docker run ...`` with all the parameters speficied in ``docker-compose.yml``. Docker compose
+can do a lot more than that, but for this demo we use it to make it easy to start the SQL Server container.
