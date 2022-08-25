@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+		http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+		http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
+
+        <preConditions>
+                <dbms type="mssql" />
+                <runningAs username="sa" />
+        </preConditions>
+
+        <changeSet id="create_student" author="rk">
+                <createTable tableName="student">
+                        <column name="id" type="int" autoIncrement="false">
+                                <constraints primaryKey="true" nullable="false" />
+                        </column>
+                        <!-- here's the first difference from changelog_1.xml. In the former it's varchar(50)-->
+                        <column name="name" type="varchar(30)">
+                                <constraints nullable="false" />
+                        </column>
+                </createTable>
+        </changeSet>
+
+        <changeSet id="create_employee" author="rk">
+                <createTable tableName="employee">
+                        <column name="id" type="int">
+                                <constraints primaryKey="true" nullable="false" />
+                        </column>
+
+                        <!-- we won't create the columns below in the test_2 db. Leaving it here just for you to see
+                        the difference:
+                        <column name="firstname" type="varchar(50)">
+                                <constraints nullable="false" />
+                        </column>
+                        <column name="lastname" type="varchar(50)">
+                                <constraints nullable="false" />
+                        </column>
+                        -->
+
+                        <!-- Here we add only a new column for a combined name (this is a bad idea in real life,
+                         but it's just an example). As a result, first_name and last_name from changelog_1.xml
+                         are not matching this:
+                        -->
+                        <column name="lastname_firstname" type="varchar(100)">
+                                <constraints nullable="false" />
+                        </column>
+
+                </createTable>
+        </changeSet>
+
+</databaseChangeLog>
