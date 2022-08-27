@@ -1,7 +1,7 @@
 ### This is the second short demo (tutorial) to guide you through a few of the great functionalities in Liquibase.
 Make sure you first completed the steps from the **[README.md](./README.md)** file and also **[DEMO-1](DEMO-1.md)**.
 
-In this demo we will still compare two databases, `test_1` and `test-2` just like in [DEMO-1](DEMO-1.md),
+In this demo we will still compare two databases, `test_1` and `test_2` just like in [DEMO-1](DEMO-1.md),
 but we'll exclude some columns in the comparison, using the [--excludeObjects](https://docs.liquibase.com/workflows/liquibase-community/including-and-excluding-objects-from-a-database.html) option.
 
 <br/>

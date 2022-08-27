@@ -413,6 +413,8 @@ up by following the steps below.
 
 # Cleaning up
 
+> Don't clean up yet if you're going to try **[DEMO-2](DEMO-2.md)**. Once you're done, you can come back to this section.
+
 ## Stop the MS SQL Server Container
 
 Open a new terminal window (or use an existing one), navigate (`cd`) to this project's root folder, and run the command below:
