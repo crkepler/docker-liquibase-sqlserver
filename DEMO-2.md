@@ -8,7 +8,7 @@ but we'll exclude some columns in the comparison, using the [--excludeObjects](h
 
 ## Step 1 - Delete all Tables in `test_1` and `test_2`
 
-Open your SQL Editor and navigate to the tables under `test-1`. Highlight all 4 tables and delete them:
+Open your SQL Editor and navigate to the tables under `test_1`. Highlight all 4 tables and delete them:
 * `DATABASECHANGELOG`  (created by Liquibase)
 * `DATABASECHANGELOGLOCK` (created by Liquibase)
 * `employee`
