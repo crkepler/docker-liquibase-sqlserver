@@ -20,9 +20,18 @@
                                 <constraints primaryKey="true" nullable="false" />
                         </column>
                         <!-- here's the first difference from changelog_1.xml. In the former it's varchar(50)-->
-                        <column name="name" type="varchar(30)">
+                        <column name="student_name" type="varchar(30)">
                                 <constraints nullable="false" />
                         </column>
+                        <!-- here's the second difference from changelog_1.xml. In the former it's varchar(50)-->
+                        <column name="country_name" type="varchar(30)">
+                                <constraints nullable="false" />
+                        </column>
+                        <!-- this column from test_1 won't be created in test_2
+                        <column name="postal_code" type="varchar(20)">
+                                <constraints nullable="false" />
+                        </column>
+                        -->
                 </createTable>
         </changeSet>
 
@@ -32,12 +41,20 @@
                                 <constraints primaryKey="true" nullable="false" />
                         </column>
 
-                        <!-- we won't create the columns below in the test_2 db. Leaving it here just for you to see
-                        the difference:
+                        <!-- we won't create the columns below in the test_2 db.
+                        Leaving it here just for you to see the difference:
                         <column name="firstname" type="varchar(50)">
                                 <constraints nullable="false" />
                         </column>
                         <column name="lastname" type="varchar(50)">
+                                <constraints nullable="false" />
+                        </column>
+                        -->
+
+                        <!-- here we also won't create the postal_code, we consider it extra information
+                        in the target database. We can either drop it in the target or ignore it -->
+                        <!--
+                        <column name="postal_code" type="varchar(20)">
                                 <constraints nullable="false" />
                         </column>
                         -->

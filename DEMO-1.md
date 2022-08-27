@@ -158,19 +158,46 @@ id - int
 <td> 
 
 ```sql
-name - varchar(50)
+student_name - varchar(50)
 ```
 </td>
 <td> 
 
 ```sql
-name - varchar(30) 
+student_name - varchar(30) ** 
 ```
-
-
 </td>
 
 </tr>
+
+<tr>
+<td> 
+
+```sql
+country_name - varchar(50)
+```
+</td>
+<td> 
+
+```sql
+country_name - varchar(30) ** 
+```
+</td>
+</tr>
+<tr>
+<td> 
+
+```sql
+postal_code - varchar(20)
+```
+</td>
+<td>
+<pre>
+&#x274c
+</pre>
+</td>
+</tr>
+
 
 <tr>
 <td><strong>employee</strong></td>
@@ -221,6 +248,20 @@ last_name - varchar(50)
 
 <tr>
 <td> 
+
+```sql
+postal_code - varchar(20)
+```
+</td>
+<td>
+<pre>
+&#x274c
+</pre>
+</td>
+</tr>
+
+<tr>
+<td> 
 <pre>
 &#x274c
 </pre>
@@ -240,12 +281,13 @@ lastname_firstname - varchar(100)
 
 <br/>
 
-## Step 4 - Compare the Two Dartabases - Diff
+## Step 4 - Compare the Two Databases - Diff
 
-In the prior steps we saw how Liquibase can create tables from XML files (other file formats are available too).
+In the prior steps we saw how Liquibase can create tables from XML files (other file formats are
+available too).
 
-Now,
-we're going to use Liquibase to COMPARE the two database and output the differences to a results file.
+Now, we're going to use Liquibase to COMPARE the two database and output the differences to a
+results file.
 
 Notice that we're back to using the ``liquibase.properties`` file as there we've already defined the two databases
 to compare. ``test_2`` is the source database, the base which will be used for the comparison.
@@ -262,6 +304,7 @@ liquibase/liquibase:4.15 \
 diffChangeLog
 ```
 
+
 ### Windows
 Just replace ```$(pwd)``` with ```%cd%```:
 ```docker
@@ -274,31 +317,43 @@ This is the generated ``comp_result_1.xml`` file in the ``./liquibase`` director
 
 ```xml
 <?xml version="1.1" encoding="UTF-8" standalone="no"?>
-<databaseChangeLog xmlns="removed for brevity">
-    <changeSet author="liquibase (generated)" id="1661454833014-2">
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet author="liquibase (generated)" id="1661556715950-3">
         <addColumn tableName="employee">
             <column name="lastname_firstname" type="varchar(100 BYTE)">
                 <constraints nullable="false"/>
             </column>
         </addColumn>
     </changeSet>
-    <changeSet author="liquibase (generated)" id="1661454833014-3">
+    <changeSet author="liquibase (generated)" id="1661556715950-4">
         <dropColumn columnName="firstname" tableName="employee"/>
     </changeSet>
-    <changeSet author="liquibase (generated)" id="1661454833014-4">
+    <changeSet author="liquibase (generated)" id="1661556715950-5">
         <dropColumn columnName="lastname" tableName="employee"/>
     </changeSet>
-    <changeSet author="liquibase (generated)" id="1661454833014-1">
-        <modifyDataType columnName="name" newDataType="varchar(30)" tableName="student"/>
+    <changeSet author="liquibase (generated)" id="1661556715950-6">
+        <dropColumn columnName="postal_code" tableName="employee"/>
+    </changeSet>
+    <changeSet author="liquibase (generated)" id="1661556715950-7">
+        <dropColumn columnName="postal_code" tableName="student"/>
+    </changeSet>
+    <changeSet author="liquibase (generated)" id="1661556715950-1">
+        <modifyDataType columnName="country_name" newDataType="varchar(30)" tableName="student"/>
+    </changeSet>
+    <changeSet author="liquibase (generated)" id="1661556715950-2">
+        <modifyDataType columnName="student_name" newDataType="varchar(30)" tableName="student"/>
     </changeSet>
 </databaseChangeLog>
 ```
 
 ### Notice:
 1. It's **adding** a new column: `lastname_firstname`
-2. It's **dropping** `first_name` and `last_name`
-3. It's changing the `name` type in the `student` table from `varchar(50)` to `varchar(30)`
+2. It's **dropping** `first_name`, `last_name`,  `employee.postal_code`, and `student.postal_code`
+3. It's changing the `country_name` type in the `student` table from `varchar(50)` to `varchar(30)`
+4. It's changing the `student_name` type in the `student` table from `varchar(50)` to `varchar(30)`
 
+> You can create by hand your own Liquibase Change Types, like I did in `changelog_1.xml` and
+`changelog_2.xml`. You can find the detailed instructions/options in this [Liquibase page](https://docs.liquibase.com/change-types/home.html).
 
 ### Previewing the Changes
 
@@ -352,6 +407,9 @@ docker run --rm -v %cd%:/liquibase/changelog --network container:sqlserver liqui
 
 We didn't use any data in our examples, but if there were rows in any table, they would all have been
 preserved.
+
+If you want to stop now and not continue to **[DEMO-2](DEMO-2.md)**, don't forget to clean your environment
+up by following the steps below.
 
 # Cleaning up
 

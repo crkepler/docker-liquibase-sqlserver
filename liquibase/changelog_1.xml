@@ -19,7 +19,13 @@
                         <column name="id" type="int" autoIncrement="false">
                                 <constraints primaryKey="true" nullable="false" />
                         </column>
-                        <column name="name" type="varchar(50)">
+                        <column name="student_name" type="varchar(50)">
+                                <constraints nullable="false" />
+                        </column>
+                        <column name="country_name" type="varchar(50)">
+                                <constraints nullable="false" />
+                        </column>
+                        <column name="postal_code" type="varchar(20)">
                                 <constraints nullable="false" />
                         </column>
                 </createTable>
@@ -36,6 +42,10 @@
                         <column name="lastname" type="varchar(50)">
                                 <constraints nullable="false" />
                         </column>
+                        <column name="postal_code" type="varchar(20)">
+                                <constraints nullable="false" />
+                        </column>
+
                 </createTable>
         </changeSet>
 

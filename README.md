@@ -2,10 +2,11 @@
 
 #### Run your own instance of MS SQL Server in a Docker container and then use a containarized Liquibase instance to manage and compare tables from different databases. 
 
-This project has 2 sections:
+This project has 3 sections:
 
 1. **Getting started** - which is in this file.
-2. **[Demo](./DEMO.md)** - a step-by-step tutorial covering the basics of using Liquibase on MSSQL. 
+2. **[Demo-1](./DEMO-1.md)** - a step-by-step tutorial covering the basics of using Liquibase on MSSQL. 
+3. **[Demo-2](./DEMO-2.md)** - a more advanced database comparison with Liquibase
 
 
 > Liquibase recommends using Docker to avoid all the installation complications and dependencies
@@ -53,7 +54,7 @@ This task is not running in the background and after a few minutes you should se
 
 --- 
 ### 6. Start the Demo
-That's it. Leave the terminal with the SQL Server container running and go to the [DEMO.md](DEMO.md) file and follow the steps there to see how we can use Liquibase with
+That's it. Leave the terminal with the SQL Server container running and go to the [DEMO-1.md](DEMO-1.md) file and follow the steps there to see how we can use Liquibase with
 MS SQL Server.
 
 ---
