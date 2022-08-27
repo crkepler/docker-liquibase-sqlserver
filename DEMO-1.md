@@ -415,7 +415,7 @@ up by following the steps below.
 
 ## Stop the MS SQL Server Container
 
-Open a new terminal window (or use an existing one) and run the command below from the project root folder:
+Open a new terminal window (or use an existing one), navigate (`cd`) to this project's root folder, and run the command below:
 ```docker
 docker compose down
 ```
