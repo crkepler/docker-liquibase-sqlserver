@@ -47,7 +47,7 @@ Just replace ```$(pwd)``` with ```%cd%```:
 
 `test_1`
 ```docker 
-docker run --rm  -v %cd%:/liquibase/changelog --network container:sqlserver liquibase/liquibase:4.15 --defaultsFile=/liquibase/changelog/liquibase.properties --changeLogFile=/liquibase/changelog/changelog_1.xml update
+docker run --rm  -v %cd%:/liquibase/changelog --network container:sqlserver liquibase/liquibase:4.15 --defaultsFile=/liquibase/changelog/liquibase.properties --changeLogFile=changelog_1.xml update
 ```
 
 `test_2`

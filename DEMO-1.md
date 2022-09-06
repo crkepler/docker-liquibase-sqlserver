@@ -67,7 +67,7 @@ update
 ### Windows
 Just replace ```$(pwd)``` with ```%cd%```:
 ```docker 
-docker run --rm  -v %cd%:/liquibase/changelog --network container:sqlserver liquibase/liquibase:4.15 --defaultsFile=/liquibase/changelog/liquibase.properties --changeLogFile=/liquibase/changelog/changelog_1.xml update
+docker run --rm  -v %cd%:/liquibase/changelog --network container:sqlserver liquibase/liquibase:4.15 --defaultsFile=/liquibase/changelog/liquibase.properties --changeLogFile=changelog_1.xml update
 ```
 
 
@@ -118,13 +118,7 @@ update
 Just replace ```$(pwd)``` with ```%cd%```:
 
 ```docker 
-docker run --rm \
--v %cd%:/liquibase/changelog \
---network container:sqlserver \
-liquibase/liquibase:4.15 \
---defaultsFile=/liquibase/changelog/liquibase_2.properties \
---changeLogFile=changelog_2.xml \
-update
+docker run --rm -v %cd%:/liquibase/changelog --network container:sqlserver liquibase/liquibase:4.15 --defaultsFile=/liquibase/changelog/liquibase_2.properties --changeLogFile=changelog_2.xml update
 ```
 
 At this point, we have the same tables in two databases with the following structure (differences):
