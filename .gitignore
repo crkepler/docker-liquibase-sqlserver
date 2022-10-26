@@ -1,3 +1,5 @@
 .idea
 liquibase/comp_result_1.xml
 liquibase/comp_result_2.xml
+.DS_Store
+sqlserver/.DS_Store
